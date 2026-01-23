@@ -1,0 +1,66 @@
+body 
+{
+  margin: 0; 
+  padding-top: 110px;
+}
+
+.director,
+.email,
+.phone-number 
+{
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 26px;
+  color: black;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+/* Labels (Director:, Email:, Phone:) */
+.director-label,
+.email-label,
+.phone-number-label 
+{
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+/* Clickable text */
+.director-text,
+.email-text,
+.phone-number-text 
+{
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.director-text:hover,
+.email-text:hover,
+.phone-number-text:hover 
+{
+  text-decoration: underline;
+}
+
+/* Extra spacing after phone number */
+.phone-number 
+{
+  margin-bottom: 50px;
+}
+
+/* Newman Club photo container */
+.newman-club-photo 
+{
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* Newman Club photo image */
+.newman-club-photo-image 
+{
+  width: 100%;
+  max-width: 320px;
+  border: 6px solid black;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}

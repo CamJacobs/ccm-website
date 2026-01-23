@@ -1,0 +1,114 @@
+footer 
+{
+  display: flex;
+  justify-content: center;   /* center horizontally */
+  align-items: center;
+  gap: 16px;                 /* spacing between icons */
+  padding: 20px;
+  border-top-color: rgb(228, 228, 228);
+   border-top-width: 1px;
+  border-top-style: solid;
+  margin-top: auto;
+  flex-direction: column;
+}
+
+.follow-us 
+{
+  font-family: Roboto, Arial;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: -8px;
+}
+
+.social-icons 
+{
+  display: flex;
+  gap: 16px;
+}
+
+.facebook-button,
+.x-button,
+.instagram-button 
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  background-color: white;
+  border: 1px solid rgb(228, 228, 228);
+  border-radius: 50%;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease,
+  transform 0.2s ease,
+   box-shadow 0.2s ease;
+}
+
+.facebook-button:hover,
+.x-button:hover,
+.instagram-button:hover 
+{
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.facebook-icon 
+{
+  width: 20px;
+  height: 20px;
+}
+
+.x-icon
+{
+  width: 20px;
+  height: 20px;
+}
+.instagram-icon
+{
+  width: 20px;
+  height: 20px;
+}
+html, body 
+{
+  height: 96.83%;
+  margin: 0;
+}
+
+body 
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-row 
+{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 20px;
+}
+
+.footer-left,
+.footer-right 
+{
+  flex: 1;                /* equal space on both sides */
+  font-family: Roboto, Arial;
+  font-size: 10px;
+  color: black;
+}
+
+.footer-left 
+{
+  text-align: left;
+}
+
+.footer-right 
+{
+  text-align: right;
+}

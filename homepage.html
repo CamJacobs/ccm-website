@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CCM Website</title>
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/homepage.css">
+    <link rel="stylesheet" href="styles/footer.css">
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <div class="header">
+      <!-- LEFT SECTION -->
+      <div class="left-section">
+        <!-- HAMBURGER MENU -->
+        <button class="hamburger-menu-button">
+          <span class="hamburger-menu-icon">&#9776;</span>
+        </button>
+
+        <nav class="off-screen-menu">
+          <ul>
+            <li class="menu-title">Resources</li>
+            <li>
+              <img class="eucharist-logo" src="icons/eucharist.jpg">
+              <a href="https://www.miracolieucaristici.org/en/liste/list.html" target="_blank">Eucharistic Miracles</a>
+            </li>
+            <li>
+              <img class="diocese-logo" src="icons/dop.png">
+              <a href="https://diopitt.org/" target="_blank">Diocese of Pittsburgh</a>
+            </li>
+            <li>
+              <img class="vatican-news-logo" src="icons/vaticannewslogo.jpg">
+              <a href="https://www.vaticannews.va/en.html" target="_blank">Vatican News</a>
+            </li>
+            <li>
+              <img class="catholic-answers-logo" src="icons/catholicanswerslogo.webp">
+              <a href="https://www.catholic.com/" target="_blank">Catholic Answers</a>
+            </li>
+            <li>
+              <img class="bible-logo" src="icons/biblegate.png">
+              <a href="https://www.biblegateway.com/" target="_blank">Online Bible</a>
+            </li>
+            <li>
+              <img class="catechism-logo" src="icons/Catechism of the Catholic Church, Revised.jpg">
+              <a href="https://usccb.cld.bz/Catechism-of-the-Catholic-Church2" target="_blank">Online Catechism</a>
+            </li>
+            <li>
+              <img class="rosary-logo" src="icons/rosaryimage.jpg">
+              <a href="https://www.usccb.org/how-to-pray-the-rosary" target="_blank">How to Pray the Rosary</a>
+            </li>
+            <li>
+              <img class="how-logo" src="icons/howlogo.jpg">
+              <a href="https://www.youtube.com/watch?v=P1HC0Vz67yo" target="_blank">How to Become Catholic</a>
+            </li>
+          </ul>
+        </nav>
+
+        <script>
+          const hamburger = document.querySelector('.hamburger-menu-button');
+          const menu = document.querySelector('.off-screen-menu');
+          hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+          });
+        </script>
+
+        <img class="colonial-catholics-image" src="https://catholicsoncampus.wordpress.com/wp-content/uploads/2017/08/cropped-colonial-catholics-fb-profile-picture11.jpg">
+      </div>
+
+      <!-- MIDDLE SECTION -->
+      <div class="middle-section">
+        <input class="search-bar" type="text" placeholder="Search">
+        <button class="search-button">
+          <img class="search-icon" src="icons/search.svg">
+        </button>
+      </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.querySelector(".search-bar");
+    const searchButton = document.querySelector(".search-button");
+    const menu = document.querySelector(".off-screen-menu");
+
+    if (!searchInput || !searchButton) return;
+
+    const dropdown = document.createElement("div");
+    dropdown.className = "search-dropdown";
+    dropdown.style.display = "none";
+    searchInput.parentNode.appendChild(dropdown);
+
+    const pages = {
+      "mass": { label: "Mass", url: "eventspage.html", newTab: false },
+      "rosary": { label: "Rosary", url: "eventspage.html", newTab: false },
+      "gary slifkey": { label: "Gary Slifkey", url: "contactpage.html", newTab: false },
+      "men's group": { label: "Men's Group", url: "eventspage.html", newTab: false },
+      "bible study": { label: "Bible Study", url: "eventspage.html", newTab: false },
+      "confession": { label: "Confession", url: "eventspage.html", newTab: false },
+      "about": { label: "About", url: "homepage.html", newTab: false },
+      
+      /* Updated History link to jump to the bottom */
+      "history": { label: "History", url: "homepage.html#footer", newTab: false },
+
+      "resources": { label: "Resources", action: "menu" },
+
+      "facebook": {
+        label: "Facebook Page",
+        url: "https://www.facebook.com/people/RMU-Colonial-Catholic-Ministry/100064644761324/?ref=embed_page#",
+        newTab: true
+      },
+      "x": {
+        label: "X Page",
+        url: "https://x.com/rmuccm",
+        newTab: true
+      },
+      "instagram": {
+        label: "Instagram Page",
+        url: "https://www.instagram.com/colonialcatholic/?hl=en",
+        newTab: true
+      }
+    };
+
+    function navigate(result) {
+      dropdown.style.display = "none";
+      searchInput.value = "";
+
+      if (result.action === "menu") {
+        if (menu) menu.classList.add("active");
+        return;
+      }
+
+      if (result.newTab) {
+        window.open(result.url, "_blank", "noopener,noreferrer");
+      } else {
+        window.location.href = result.url;
+      }
+    }
+
+    /* Rest of your existing handleSearch, renderDropdown, and event listener logic remains the same... */
+    function handleSearch() {
+      const query = searchInput.value.trim().toLowerCase();
+      if (!query) return;
+      if (pages[query]) { navigate(pages[query]); return; }
+      for (const key in pages) {
+        if (key.includes(query) || query.includes(key)) {
+          navigate(pages[key]);
+          return;
+        }
+      }
+      alert("No results found.");
+    }
+
+    function renderDropdown(results) {
+      dropdown.innerHTML = "";
+      results.forEach(result => {
+        const item = document.createElement("div");
+        item.textContent = result.label;
+        item.addEventListener("click", () => navigate(result));
+        dropdown.appendChild(item);
+      });
+      dropdown.style.display = results.length ? "block" : "none";
+    }
+
+    function updateDropdown() {
+      const query = searchInput.value.trim().toLowerCase();
+      let results = [];
+      if (!query) {
+        results = Object.values(pages);
+        renderDropdown(results);
+        return;
+      }
+      if (pages[query]) { results.push(pages[query]); }
+      for (const key in pages) {
+        if (key.includes(query) && (!pages[query] || key !== query)) {
+          results.push(pages[key]);
+        }
+      }
+      renderDropdown(results);
+    }
+
+    searchInput.addEventListener("focus", updateDropdown);
+    searchInput.addEventListener("input", updateDropdown);
+    searchButton.addEventListener("click", handleSearch);
+    searchInput.addEventListener("keydown", (e) => { if (e.key === "Enter") handleSearch(); });
+    document.addEventListener("click", (e) => {
+      if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = "none";
+      }
+    });
+  });
+</script>
+
+
+
+
+
+      <!-- RIGHT SECTION -->
+      <div class="right-section">
+        <button class="home-button">
+          <img class="home-icon" src="icons/home.svg">
+          <div class="home"><a href="homepage.html">Home</a></div>
+        </button>
+
+        <button class="events-button">
+          <span class="events-icon">&#128392;</span>
+          <div class="events"><a href="eventspage.html">Events</a></div>
+        </button>
+
+        <button class="contact-button">
+          <span class="contact-icon">&#128383;</span>
+          <div class="contact"><a href="contactpage.html">Contact</a></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- WELCOME SECTION -->
+    <div class="welcome">
+      <span>Welcome to the RMU Catholic Newman Club!</span>
+    </div>
+
+    <!-- ADDRESS -->
+    <div class="address">
+      <span>6001 University Boulevard, Moon Township, PA 15108</span>
+    </div>
+
+    <!-- CROSS ICON -->
+    <div class="cross-icon">
+      <span>&#9841;</span>
+    </div>
+
+    <!-- MASS PHOTO -->
+    <div class="mass-photo">
+      <img class="mass-photo-image" src="icons/514453915_24623685400565772_4557246587931550952_n.jpg">
+    </div>
+
+    <!-- ABOUT US -->
+    <div class="about-us">
+      <span>About Us</span>
+    </div>
+    <div class="about-text">
+      <span>
+        The Catholic Newman Club at Robert Morris University is a faith-centered community dedicated to helping students grow spiritually, intellectually, and socially while living out the teachings of the Catholic Church on campus. Our mission is to provide a welcoming space where students can encounter Christ, deepen their understanding of the faith, and build meaningful friendships rooted in shared values. We strive to support students in living out their Catholic identity through prayer, fellowship, service, and formation. The Newman Club hosts a variety of events throughout the year, including Bible studies, faith discussions, social gatherings, service opportunities, and spiritual activities. Whether you are a lifelong Catholic, new to the faith, or simply curious, you are welcome here. Above all, we seek to glorify God and encourage students to live authentically as disciples of Christ during their time at RMU and beyond. All are welcome.
+      </span>
+    </div>
+
+    <!-- HISTORY -->
+    <div class="history">
+      <span>History</span>
+    </div>
+    <div class="history-text">
+      <span>
+        The Catholic Newman Club traces its roots back to the late nineteenth century and is named after St. John Henry Newman, a renowned theologian and educator who had a deep concern for the spiritual lives of students in higher education. Newman Clubs were originally established to support Catholic students attending colleges and universities where a Catholic presence or campus ministry was limited or nonexistent. The purpose of the Catholic Newman Club has always been to provide spiritual, social, and intellectual support for Catholic students. These clubs were created so students could continue practicing their faith, receive the sacraments, grow in their relationship with Christ, and build a strong sense of community during their college years. Over time, Newman Clubs also became centers for fellowship, service, and faith formation, welcoming students from all backgrounds. At Robert Morris University, the Catholic Newman Club was founded in 2010 to serve the spiritual needs of Catholic students on campus and to establish a supportive faith community rooted in the teachings of the Catholic Church. Today, the Catholic Newman Club at Robert Morris University continues this mission by fostering a vibrant Catholic presence on campus and guiding students as they grow in faith, friendship, and service to Christ and His Church.
+      </span>
+    </div>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+  <div class="follow-us">
+    <span>Follow Us</span>
+  </div>
+
+  <div class="footer-row">
+    <span class="footer-left">
+      This website was made through the intercession of Saint Carlo Acutis.
+    </span>
+
+    <div class="social-icons">
+      <a href="https://www.facebook.com/people/RMU-Colonial-Catholic-Ministry/100064644761324/?ref=embed_page#" target="_blank" rel="noopener noreferrer" class="facebook-button">
+        <img class="facebook-icon" src="icons/facebook-brands-solid-full.svg">
+      </a>
+      <a href="https://x.com/rmuccm" target="_blank" rel="noopener noreferrer" class="x-button">
+        <img class="x-icon" src="icons/x-twitter-brands-solid-full.svg">
+      </a>
+      <a href="https://www.instagram.com/colonialcatholic/?hl=en" target="_blank" rel="noopener noreferrer" class="instagram-button">
+        <img class="instagram-icon" src="icons/instagram-brands-solid-full.svg">
+      </a>
+    </div>
+
+    <span class="footer-right">
+      Saint Carlo Acutis, please pray for us.
+    </span>
+  </div>
+</footer>
+
+  </body>
+</html>
