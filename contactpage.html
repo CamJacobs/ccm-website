@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="styles/contactpage.css">
     <link rel="stylesheet" href="styles/footer3.css">
     <!-- Favicon -->
-  <link 
-    rel="icon" 
-    type="image/png" 
-    href="icons/ccmlogo.png"
-  >
+    <link 
+      rel="icon" 
+      type="image/png" 
+      href="icons/ccmlogo.png"
+    >
   </head>
 
   <body>
@@ -102,28 +102,12 @@
       "men's group": { label: "Men's Group", url: "eventspage.html", newTab: false },
       "bible study": { label: "Bible Study", url: "eventspage.html", newTab: false },
       "confession": { label: "Confession", url: "eventspage.html", newTab: false },
-      "about": { label: "About", url: "homepage.html", newTab: false },
-      
-      /* Updated History link to jump to the bottom */
-      "history": { label: "History", url: "homepage.html#footer", newTab: false },
-
+      "about": { label: "About", url: "index.html", newTab: false },  // updated
+      "history": { label: "History", url: "index.html#footer", newTab: false },  // updated
       "resources": { label: "Resources", action: "menu" },
-
-      "facebook": {
-        label: "Facebook Page",
-        url: "https://www.facebook.com/people/RMU-Colonial-Catholic-Ministry/100064644761324/?ref=embed_page#",
-        newTab: true
-      },
-      "x": {
-        label: "X Page",
-        url: "https://x.com/rmuccm",
-        newTab: true
-      },
-      "instagram": {
-        label: "Instagram Page",
-        url: "https://www.instagram.com/colonialcatholic/?hl=en",
-        newTab: true
-      }
+      "facebook": { label: "Facebook Page", url: "https://www.facebook.com/people/RMU-Colonial-Catholic-Ministry/100064644761324/?ref=embed_page#", newTab: true },
+      "x": { label: "X Page", url: "https://x.com/rmuccm", newTab: true },
+      "instagram": { label: "Instagram Page", url: "https://www.instagram.com/colonialcatholic/?hl=en", newTab: true }
     };
 
     function navigate(result) {
@@ -142,7 +126,6 @@
       }
     }
 
-    /* Rest of your existing handleSearch, renderDropdown, and event listener logic remains the same... */
     function handleSearch() {
       const query = searchInput.value.trim().toLowerCase();
       if (!query) return;
@@ -196,12 +179,11 @@
   });
 </script>
 
-
       <!-- RIGHT SECTION -->
       <div class="right-section">
         <button class="home-button">
           <img class="home-icon" src="icons/home.svg">
-          <div class="home"><a href="homepage.html">Home</a></div>
+          <div class="home"><a href="index.html">Home</a></div>  <!-- updated -->
         </button>
 
         <button class="events-button">
@@ -239,12 +221,10 @@
 
     <!-- FOOTER -->
 <footer id="footer"> 
-  <!-- Follow Us Section -->
   <div class="follow-us"> 
     <span>Follow Us</span> 
   </div> 
 
-  <!-- Social Icons Section -->
   <div class="social-icons"> 
     <a href="https://www.facebook.com/people/RMU-Colonial-Catholic-Ministry/100064644761324/?ref=embed_page#" 
        target="_blank" rel="noopener noreferrer" class="facebook-button"> 
