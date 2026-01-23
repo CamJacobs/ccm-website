@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CCM Website</title>
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/eventspage.css">
+    <link rel="stylesheet" href="styles/footer2.css">
+    <!-- Favicon -->
+  <link 
+    rel="icon" 
+    type="image/png" 
+    href="icons/ccmlogo.png"
+  >
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <div class="header">
+      <!-- LEFT SECTION -->
+      <div class="left-section">
+        <!-- HAMBURGER MENU -->
+        <button class="hamburger-menu-button">
+          <span class="hamburger-menu-icon">&#9776;</span>
+        </button>
+
+        <nav class="off-screen-menu">
+          <ul>
+            <li class="menu-title">Resources</li>
+            <li>
+              <img class="eucharist-logo" src="icons/eucharist.jpg">
+              <a href="https://www.miracolieucaristici.org/en/liste/list.html" target="_blank" rel="noopener noreferrer">Eucharistic Miracles</a>
+            </li>
+            <li>
+              <img class="diocese-logo" src="icons/dop.png">
+              <a href="https://diopitt.org/" target="_blank" rel="noopener noreferrer">Diocese of Pittsburgh</a>
+            </li>
+            <li>
+              <img class="vatican-news-logo" src="icons/vaticannewslogo.jpg">
+              <a href="https://www.vaticannews.va/en.html" target="_blank" rel="noopener noreferrer">Vatican News</a>
+            </li>
+            <li>
+              <img class="catholic-answers-logo" src="icons/catholicanswerslogo.webp">
+              <a href="https://www.catholic.com/" target="_blank" rel="noopener noreferrer">Catholic Answers</a>
+            </li>
+            <li>
+              <img class="bible-logo" src="icons/biblegate.png">
+              <a href="https://www.biblegateway.com/" target="_blank" rel="noopener noreferrer">Online Bible</a>
+            </li>
+            <li>
+              <img class="catechism-logo" src="icons/Catechism of the Catholic Church, Revised.jpg">
+              <a href="https://usccb.cld.bz/Catechism-of-the-Catholic-Church2" target="_blank" rel="noopener noreferrer">Online Catechism</a>
+            </li>
+            <li>
+              <img class="rosary-logo" src="icons/rosaryimage.jpg">
+              <a href="https://www.usccb.org/how-to-pray-the-rosary" target="_blank" rel="noopener noreferrer">How to Pray the Rosary</a>
+            </li>
+            <li>
+              <img class="how-logo" src="icons/howlogo.jpg">
+              <a href="https://www.youtube.com/watch?v=P1HC0Vz67yo" target="_blank" rel="noopener noreferrer">How to Become Catholic</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- HAMBURGER MENU SCRIPT -->
+        <script>
+          const hamburger = document.querySelector('.hamburger-menu-button');
+          const menu = document.querySelector('.off-screen-menu');
+
+          hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+          });
+        </script>
+
+        <img class="colonial-catholics-image" src="https://catholicsoncampus.wordpress.com/wp-content/uploads/2017/08/cropped-colonial-catholics-fb-profile-picture11.jpg">
+      </div>
+
+      <!-- MIDDLE SECTION -->
+      <div class="middle-section">
+        <input class="search-bar" type="text" placeholder="Search">
+        <button class="search-button">
+          <img class="search-icon" src="icons/search.svg">
+        </button>
+      </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.querySelector(".search-bar");
+    const searchButton = document.querySelector(".search-button");
+    const menu = document.querySelector(".off-screen-menu");
+
+    if (!searchInput || !searchButton) return;
+
+    const dropdown = document.createElement("div");
+    dropdown.className = "search-dropdown";
+    dropdown.style.display = "none";
+    searchInput.parentNode.appendChild(dropdown);
+
+    const pages = {
+      "mass": { label: "Mass", url: "eventspage.html", newTab: false },
+      "rosary": { label: "Rosary", url: "eventspage.html", newTab: false },
+      "gary slifkey": { label: "Gary Slifkey", url: "contactpage.html", newTab: false },
+      "men's group": { label: "Men's Group", url: "eventspage.html", newTab: false },
+      "bible study": { label: "Bible Study", url: "eventspage.html", newTab: false },
+      "confession": { label: "Confession", url: "eventspage.html", newTab: false },
+      "about": { label: "About", url: "homepage.html", newTab: false },
+      
+      /* Updated History link to jump to the bottom */
+      "history": { label: "History", url: "homepage.html#footer", newTab: false },
+
+      "resources": { label: "Resources", action: "menu" },
+
+      "facebook": {
+        label: "Facebook Page",
+        url: "https://www.facebook.com/people/RMU-Colonial-Catholic-Ministry/100064644761324/?ref=embed_page#",
+        newTab: true
+      },
+      "x": {
+        label: "X Page",
+        url: "https://x.com/rmuccm",
+        newTab: true
+      },
+      "instagram": {
+        label: "Instagram Page",
+        url: "https://www.instagram.com/colonialcatholic/?hl=en",
+        newTab: true
+      }
+    };
+
+    function navigate(result) {
+      dropdown.style.display = "none";
+      searchInput.value = "";
+
+      if (result.action === "menu") {
+        if (menu) menu.classList.add("active");
+        return;
+      }
+
+      if (result.newTab) {
+        window.open(result.url, "_blank", "noopener,noreferrer");
+      } else {
+        window.location.href = result.url;
+      }
+    }
+
+    /* Rest of your existing handleSearch, renderDropdown, and event listener logic remains the same... */
+    function handleSearch() {
+      const query = searchInput.value.trim().toLowerCase();
+      if (!query) return;
+      if (pages[query]) { navigate(pages[query]); return; }
+      for (const key in pages) {
+        if (key.includes(query) || query.includes(key)) {
+          navigate(pages[key]);
+          return;
+        }
+      }
+      alert("No results found.");
+    }
+
+    function renderDropdown(results) {
+      dropdown.innerHTML = "";
+      results.forEach(result => {
+        const item = document.createElement("div");
+        item.textContent = result.label;
+        item.addEventListener("click", () => navigate(result));
+        dropdown.appendChild(item);
+      });
+      dropdown.style.display = results.length ? "block" : "none";
+    }
+
+    function updateDropdown() {
+      const query = searchInput.value.trim().toLowerCase();
+      let results = [];
+      if (!query) {
+        results = Object.values(pages);
+        renderDropdown(results);
+        return;
+      }
+      if (pages[query]) { results.push(pages[query]); }
+      for (const key in pages) {
+        if (key.includes(query) && (!pages[query] || key !== query)) {
+          results.push(pages[key]);
+        }
+      }
+      renderDropdown(results);
+    }
+
+    searchInput.addEventListener("focus", updateDropdown);
+    searchInput.addEventListener("input", updateDropdown);
+    searchButton.addEventListener("click", handleSearch);
+    searchInput.addEventListener("keydown", (e) => { if (e.key === "Enter") handleSearch(); });
+    document.addEventListener("click", (e) => {
+      if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = "none";
+      }
+    });
+  });
+</script>
+
+
+      <!-- RIGHT SECTION -->
+      <div class="right-section">
+        <button class="home-button">
+          <img class="home-icon" src="icons/home.svg">
+          <div class="home"><a href="homepage.html">Home</a></div>
+        </button>
+
+        <button class="events-button">
+          <span class="events-icon">&#128392;</span>
+          <div class="events"><a href="eventspage.html">Events</a></div>
+        </button>
+
+        <button class="contact-button">
+          <span class="contact-icon">&#128383;</span>
+          <div class="contact"><a href="contactpage.html">Contact</a></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- EVENTS CALENDAR -->
+<main class="events-page">
+  <section class="calendar-container">
+    <h2 id="monthYear"></h2>
+
+    <div class="calendar">
+      <div class="day-name">Sun</div>
+      <div class="day-name">Mon</div>
+      <div class="day-name">Tue</div>
+      <div class="day-name">Wed</div>
+      <div class="day-name">Thu</div>
+      <div class="day-name">Fri</div>
+      <div class="day-name">Sat</div>
+    </div>
+
+    <div id="event-details" class="event-details">
+      <h3>Event Details</h3>
+      <p id="event-info">Click a day to see events.</p>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer id="footer"> 
+  <!-- Follow Us Section -->
+  <div class="follow-us"> 
+    <span>Follow Us</span> 
+  </div> 
+
+  <!-- Social Icons Section -->
+  <div class="social-icons"> 
+    <a href="https://www.facebook.com/people/RMU-Colonial-Catholic-Ministry/100064644761324/?ref=embed_page#" 
+       target="_blank" rel="noopener noreferrer" class="facebook-button"> 
+      <img class="facebook-icon" src="icons/facebook-brands-solid-full.svg" alt="Facebook"> 
+    </a> 
+
+    <a href="https://x.com/rmuccm" 
+       target="_blank" rel="noopener noreferrer" class="x-button"> 
+      <img class="x-icon" src="icons/x-twitter-brands-solid-full.svg" alt="X/Twitter"> 
+    </a> 
+
+    <a href="https://www.instagram.com/colonialcatholic/?hl=en" 
+       target="_blank" rel="noopener noreferrer" class="instagram-button"> 
+      <img class="instagram-icon" src="icons/instagram-brands-solid-full.svg" alt="Instagram"> 
+    </a> 
+  </div> 
+</footer>
+
+
+<!-- EVENTS SCRIPT -->
+<script>
+  const calendar = document.querySelector(".calendar");
+  const monthYear = document.getElementById("monthYear");
+  const eventInfo = document.getElementById("event-info");
+
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth();
+
+  // EDIT EVENTS HERE
+  const events = {
+    "2026-1-20": [{ title: "Catholic Newman Club Meeting in Rogal Chapel", time: "5:00 PM" }],
+    "2026-1-21": [
+      { title: "Rosary in Rogal Chapel", time: "9:30 AM" },
+      { title: "Rosary in Rogal Chapel", time: "11:00 AM" },
+      { title: "Men's Group in Rogal Chapel", time: "12:00 PM - 1:00 PM" },
+      { title: "Men's Group in Rogal Chapel", time: "2:30 PM - 3:30 PM" }
+    ],
+    "2026-1-22": [{ title: "Men's Group in Rogal Chapel", time: "1:00 PM - 2:00 PM" }],
+    "2026-1-25": [
+      { title: "OCIA Meeting in Rogal Chapel", time: "6:00 PM" },
+      { title: "Esteem Leadership Group in Rogal Chapel", time: "6:00 PM" },
+      { title: "Confession in Rogal Chapel", time: "7:30 PM" },
+      { title: "Mass in Rogal Chapel", time: "8:00 PM" }
+    ],
+    "2026-1-26": [{ title: "Morning Prayer Break in Rogal Chapel", time: "12:00 AM - 4:00 PM" }],
+    "2026-1-27": [
+      { title: "Catholic Newman Club Meeting in Rogal Chapel", time: "5:00 PM" },
+      { title: "Vision Board with Wellness Night in Rogal Chapel", time: "6:00 PM" }
+    ],
+    "2026-1-28": [
+      { title: "Rosary in Rogal Chapel", time: "9:30 AM" },
+      { title: "Rosary in Rogal Chapel", time: "11:00 AM" },
+      { title: "Men's Group in Rogal Chapel", time: "12:00 PM - 1:00 PM" },
+      { title: "Men's Group in Rogal Chapel", time: "2:30 PM - 3:30 PM" }
+    ],
+    "2026-1-29": [
+      { title: "Spring Activities Fair in Rogal Chapel", time: "11:00 AM - 1:00 PM" },
+      { title: "Men's Group in Rogal Chapel", time: "1:00 PM - 2:00 PM" }
+    ]
+  };
+
+  function renderCalendar() {
+    calendar.querySelectorAll(".day").forEach(d => d.remove());
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const lastDate = new Date(year, month + 1, 0).getDate();
+
+    monthYear.textContent = date.toLocaleString("default", {
+      month: "long",
+      year: "numeric"
+    });
+
+    // Empty slots before first day
+    for (let i = 0; i < firstDay; i++) {
+      calendar.appendChild(document.createElement("div"));
+    }
+
+    // Days of month
+    for (let day = 1; day <= lastDate; day++) {
+      const dayDiv = document.createElement("div");
+      dayDiv.classList.add("day");
+      dayDiv.textContent = day;
+
+      const key = `${year}-${month + 1}-${day}`;
+      if (events[key]) dayDiv.classList.add("event-day");
+
+      dayDiv.addEventListener("click", () => {
+        // remove outline from all days
+        document.querySelectorAll(".day").forEach(d =>
+          d.classList.remove("selected")
+        );
+
+        // add outline to clicked day
+        dayDiv.classList.add("selected");
+
+        if (events[key]) {
+          eventInfo.innerHTML = events[key]
+            .map(e => `<strong>${e.title}</strong><br>Time: ${e.time}<br><br>`)
+            .join("");
+        } else {
+          eventInfo.textContent = "No events scheduled for this day.";
+        }
+      });
+
+      calendar.appendChild(dayDiv);
+    }
+  }
+
+  renderCalendar();
+</script>
+
+
+  </body>
+</html>
