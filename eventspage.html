@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="styles/eventspage.css">
     <link rel="stylesheet" href="styles/footer2.css">
     <!-- Favicon -->
-  <link 
-    rel="icon" 
-    type="image/png" 
-    href="icons/ccmlogo.png"
-  >
+    <link 
+      rel="icon" 
+      type="image/png" 
+      href="icons/ccmlogo.png"
+    >
   </head>
 
   <body>
@@ -102,28 +102,12 @@
       "men's group": { label: "Men's Group", url: "eventspage.html", newTab: false },
       "bible study": { label: "Bible Study", url: "eventspage.html", newTab: false },
       "confession": { label: "Confession", url: "eventspage.html", newTab: false },
-      "about": { label: "About", url: "homepage.html", newTab: false },
-      
-      /* Updated History link to jump to the bottom */
-      "history": { label: "History", url: "homepage.html#footer", newTab: false },
-
+      "about": { label: "About", url: "index.html", newTab: false },  // updated
+      "history": { label: "History", url: "index.html#footer", newTab: false },  // updated
       "resources": { label: "Resources", action: "menu" },
-
-      "facebook": {
-        label: "Facebook Page",
-        url: "https://www.facebook.com/people/RMU-Colonial-Catholic-Ministry/100064644761324/?ref=embed_page#",
-        newTab: true
-      },
-      "x": {
-        label: "X Page",
-        url: "https://x.com/rmuccm",
-        newTab: true
-      },
-      "instagram": {
-        label: "Instagram Page",
-        url: "https://www.instagram.com/colonialcatholic/?hl=en",
-        newTab: true
-      }
+      "facebook": { label: "Facebook Page", url: "https://www.facebook.com/people/RMU-Colonial-Catholic-Ministry/100064644761324/?ref=embed_page#", newTab: true },
+      "x": { label: "X Page", url: "https://x.com/rmuccm", newTab: true },
+      "instagram": { label: "Instagram Page", url: "https://www.instagram.com/colonialcatholic/?hl=en", newTab: true }
     };
 
     function navigate(result) {
@@ -142,7 +126,6 @@
       }
     }
 
-    /* Rest of your existing handleSearch, renderDropdown, and event listener logic remains the same... */
     function handleSearch() {
       const query = searchInput.value.trim().toLowerCase();
       if (!query) return;
@@ -196,12 +179,11 @@
   });
 </script>
 
-
       <!-- RIGHT SECTION -->
       <div class="right-section">
         <button class="home-button">
           <img class="home-icon" src="icons/home.svg">
-          <div class="home"><a href="homepage.html">Home</a></div>
+          <div class="home"><a href="index.html">Home</a></div>  <!-- updated -->
         </button>
 
         <button class="events-button">
@@ -240,12 +222,10 @@
 
 <!-- FOOTER -->
 <footer id="footer"> 
-  <!-- Follow Us Section -->
   <div class="follow-us"> 
     <span>Follow Us</span> 
   </div> 
 
-  <!-- Social Icons Section -->
   <div class="social-icons"> 
     <a href="https://www.facebook.com/people/RMU-Colonial-Catholic-Ministry/100064644761324/?ref=embed_page#" 
        target="_blank" rel="noopener noreferrer" class="facebook-button"> 
@@ -264,7 +244,6 @@
   </div> 
 </footer>
 
-
 <!-- EVENTS SCRIPT -->
 <script>
   const calendar = document.querySelector(".calendar");
@@ -275,7 +254,6 @@
   const year = date.getFullYear();
   const month = date.getMonth();
 
-  // EDIT EVENTS HERE
   const events = {
     "2026-1-20": [{ title: "Catholic Newman Club Meeting in Rogal Chapel", time: "5:00 PM" }],
     "2026-1-21": [
@@ -319,12 +297,10 @@
       year: "numeric"
     });
 
-    // Empty slots before first day
     for (let i = 0; i < firstDay; i++) {
       calendar.appendChild(document.createElement("div"));
     }
 
-    // Days of month
     for (let day = 1; day <= lastDate; day++) {
       const dayDiv = document.createElement("div");
       dayDiv.classList.add("day");
@@ -334,12 +310,9 @@
       if (events[key]) dayDiv.classList.add("event-day");
 
       dayDiv.addEventListener("click", () => {
-        // remove outline from all days
         document.querySelectorAll(".day").forEach(d =>
           d.classList.remove("selected")
         );
-
-        // add outline to clicked day
         dayDiv.classList.add("selected");
 
         if (events[key]) {
@@ -357,7 +330,6 @@
 
   renderCalendar();
 </script>
-
 
   </body>
 </html>
