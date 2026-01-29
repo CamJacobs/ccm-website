@@ -48,6 +48,8 @@ footer
    box-shadow 0.2s ease;
 }
 
+@media screen and (min-width: 769px)
+{
 .facebook-button:hover,
 .x-button:hover,
 .instagram-button:hover 
@@ -55,6 +57,7 @@ footer
   background-color: #f0f0f0;
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
 }
 
 .facebook-icon 
@@ -74,5 +77,21 @@ footer
   height: 20px;
 }
 
+/* =========================
+   iPHONE-ONLY FOOTER ADJUSTMENT
+   ========================= */
+@media only screen 
+  and (max-width: 812px) 
+  and (-webkit-device-pixel-ratio: 2),
+only screen 
+  and (max-width: 896px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  {
 
-
+  footer 
+  {
+    margin-top: 100px;   /* pushes footer down */
+    padding-bottom: 20px; /* extra breathing room above iOS bottom bar */
+  }
+  
+}
