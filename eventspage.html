@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>CCM Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/eventspage.css">
     <link rel="stylesheet" href="styles/footer2.css">
@@ -25,6 +27,22 @@
 
         <nav class="off-screen-menu">
           <ul>
+            <!-- PAGES (mobile only) -->
+            <li class="menu-title pages-title">Pages</li>
+            <li class="page-link">
+              <img class="home-icon" src="icons/home.svg">
+              <a href="index.html" target="_blank">Home</a>
+            </li>
+            <li class="page-link">
+              <img class="events-icon" src="icons/events.svg">
+              <a href="eventspage.html" target="_blank">Events</a>
+            </li>
+            <li class="page-link">
+              <img class="contact-icon" src="icons/contact.svg">
+              <a href="contactpage.html" target="_blank">Contact</a>
+            </li>
+            
+            <!-- RESOURCES -->
             <li class="menu-title">Resources</li>
             <li>
               <img class="eucharist-logo" src="icons/eucharist.jpg">
@@ -183,17 +201,17 @@
       <div class="right-section">
         <button class="home-button">
           <img class="home-icon" src="icons/home.svg">
-          <div class="home"><a href="index.html">Home</a></div>  <!-- updated -->
+          <div class="home"><a href="index.html">Home</a></div>  
         </button>
 
         <button class="events-button">
-          <span class="events-icon">&#128392;</span>
-          <div class="events"><a href="eventspage.html">Events</a></div>
+         <img class="events-icon" src="icons/events.svg">
+          <div class="events"><a href="index.html">Events</a></div>
         </button>
 
         <button class="contact-button">
-          <span class="contact-icon">&#128383;</span>
-          <div class="contact"><a href="contactpage.html">Contact</a></div>
+          <img class="contact-icon" src="icons/contact.svg">
+          <div class="contact"><a href="index.html">Contact</a></div>
         </button>
       </div>
     </div>
@@ -219,30 +237,6 @@
     </div>
   </section>
 </main>
-
-<!-- FOOTER -->
-<footer id="footer"> 
-  <div class="follow-us"> 
-    <span>Follow Us</span> 
-  </div> 
-
-  <div class="social-icons"> 
-    <a href="https://www.facebook.com/people/RMU-Colonial-Catholic-Ministry/100064644761324/?ref=embed_page#" 
-       target="_blank" rel="noopener noreferrer" class="facebook-button"> 
-      <img class="facebook-icon" src="icons/facebook-brands-solid-full.svg" alt="Facebook"> 
-    </a> 
-
-    <a href="https://x.com/rmuccm" 
-       target="_blank" rel="noopener noreferrer" class="x-button"> 
-      <img class="x-icon" src="icons/x-twitter-brands-solid-full.svg" alt="X/Twitter"> 
-    </a> 
-
-    <a href="https://www.instagram.com/colonialcatholic/?hl=en" 
-       target="_blank" rel="noopener noreferrer" class="instagram-button"> 
-      <img class="instagram-icon" src="icons/instagram-brands-solid-full.svg" alt="Instagram"> 
-    </a> 
-  </div> 
-</footer>
 
 <!-- EVENTS SCRIPT -->
 <script>
@@ -277,11 +271,11 @@
     "2026-1-28": [
       { title: "Rosary in Rogal Chapel", time: "9:30 AM" },
       { title: "Rosary in Rogal Chapel", time: "11:00 AM" },
+      { title: "Spring Activities Fair in Nicholson Center", time: "11:00 AM - 1:00 PM" },
       { title: "Men's Group in Rogal Chapel", time: "12:00 PM - 1:00 PM" },
       { title: "Men's Group in Rogal Chapel", time: "2:30 PM - 3:30 PM" }
     ],
     "2026-1-29": [
-      { title: "Spring Activities Fair in Rogal Chapel", time: "11:00 AM - 1:00 PM" },
       { title: "Men's Group in Rogal Chapel", time: "1:00 PM - 2:00 PM" }
     ]
   };
@@ -331,5 +325,28 @@
   renderCalendar();
 </script>
 
+<!-- FOOTER -->
+<footer id="footer"> 
+  <div class="follow-us"> 
+    <span>Follow Us</span> 
+  </div> 
+
+  <div class="social-icons"> 
+    <a href="https://www.facebook.com/people/RMU-Colonial-Catholic-Ministry/100064644761324/?ref=embed_page#" 
+       target="_blank" rel="noopener noreferrer" class="facebook-button"> 
+      <img class="facebook-icon" src="icons/facebook-brands-solid-full.svg" alt="Facebook"> 
+    </a> 
+
+    <a href="https://x.com/rmuccm" 
+       target="_blank" rel="noopener noreferrer" class="x-button"> 
+      <img class="x-icon" src="icons/x-twitter-brands-solid-full.svg" alt="X/Twitter"> 
+    </a> 
+
+    <a href="https://www.instagram.com/colonialcatholic/?hl=en" 
+       target="_blank" rel="noopener noreferrer" class="instagram-button"> 
+      <img class="instagram-icon" src="icons/instagram-brands-solid-full.svg" alt="Instagram"> 
+    </a> 
+  </div> 
+</footer>
   </body>
 </html>
