@@ -28,10 +28,10 @@ body
 /* Cross icon */
 .cross-icon 
 {
-  font-size: 42px;
+  height: 38px;
   color: black;
   text-align: center;
-  margin-bottom: 45px;
+  margin-bottom: 35px;
 }
 
 /* Mass photo container */
@@ -76,5 +76,63 @@ body
   max-width: 900px;
   margin: 0 auto 70px;
   padding: 0 20px;
+}
+
+/* iPhone-specific styles */
+@media only screen 
+  and (min-device-width: 200px) 
+  and (max-device-width: 600px) 
+  and (-webkit-min-device-pixel-ratio: 2) 
+{
+  body {
+    overflow-x: hidden; 
+    width: 100%;
+    padding-top: 40px; /* a little less top padding */
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .welcome {
+    font-size: 26px;   /* smaller heading for iPhone */
+    margin: 40px 0 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .address {
+    font-size: 16px;   /* slightly smaller */
+    margin-bottom: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .cross-icon {
+    height: 24px;   
+    color: black;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .mass-photo-image {
+    width: 80%;        /* fit smaller screens */
+    max-width: 350px;  /* scale down max width */
+    border-width: 4px;
+    border-radius: 10px;
+  }
+
+  .about-us,
+  .history {
+    font-size: 18px;   /* slightly smaller section headings */
+    margin: 40px 0 10px;
+  }
+
+  .about-text,
+  .history-text {
+    font-size: 10px;   /* smaller paragraph text */
+    padding: 0 30px;   /* less horizontal padding */
+    max-width: 100%;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+  }
 }
 
