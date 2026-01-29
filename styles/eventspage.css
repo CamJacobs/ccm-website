@@ -111,3 +111,51 @@ body
   background-color: #fafafa;
   font-size: 14px;
 }
+
+/* HOVER EFFECT: Only apply hover effects on devices that have a mouse.
+   This prevents "sticky" hover states on mobile touchscreens. */
+@media (hover: hover) 
+{
+  .day:hover 
+  {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+  }
+  
+  .event-day:hover 
+  {
+    background-color: lightgrey;   
+  }
+}
+
+/* Days with events */
+.event-day 
+{
+  background-color: darkgrey;
+  font-weight: 700;
+  transition: background-color 0.2s ease;
+}
+
+/* =========================
+   Event details panel
+========================= */
+.event-details 
+{
+  margin-top: 22px;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background-color: #fafafa;
+  font-size: 14px;
+  /* Ensure text wraps correctly within container */
+  word-wrap: break-word; 
+}
+
+@media screen and (max-width: 768px) 
+{
+  .calendar-container 
+{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+}
