@@ -249,96 +249,127 @@
   const year = date.getFullYear();
   const month = date.getMonth();
 
-  const events = {
-    "2026-3-1": 
-    [
-      { title: "Confession in Rogal Chapel", time: "7:30 PM" },
-      { title: "Mass in Rogal Chapel", time: "8:00 PM" }
-    ],
-    "2026-3-2": 
-    [
-      { title: "Labyrinth Prayer in Rogal Chapel", time: "12:00 AM - 3:00 PM" },
-      { title: "Bible Study in Rogal Chapel", time: "6:00 PM" },
-      { title: "Busy Person's Retreat in Rogal Chapel", time: "All Day" }
-    ],
-    "2026-3-3": 
-    [
-      { title: "Catholic Newman Club Meeting in Rogal Chapel (Stations of The Cross)", time: "5:00 PM" },
-      { title: "Busy Person's Retreat in Rogal Chapel", time: "All Day" }
-    ],
-    "2026-3-4": 
+  const events = 
+  {
+   "2026-4-1": 
     [
       { title: "Rosary in Rogal Chapel", time: "9:30 AM" },
       { title: "Rosary in Rogal Chapel", time: "11:00 AM" },
-      { title: "Busy Person's Retreat in Rogal Chapel", time: "All Day" }
+      { title: "Men's Group in Rogal Chapel", time: "12:00 PM - 1:00 PM" },
+      { title: "Men's Group in Rogal Chapel", time: "2:30 PM - 3:30 PM" }
     ],
-    "2026-3-5": [{ title: "Busy Person's Retreat in Rogal Chapel", time: "All Day" }],
-    "2026-3-6": [{ title: "Women's Group in Rogal Chapel", time: "3:00 PM - 4:00 PM" }],
-    "2026-3-8": 
+    "2026-4-2": 
     [
-      { title: "Esteem Leadership Session in Rogal Chapel", time: "6:00 PM" },
-      { title: "Confession in Rogal Chapel", time: "7:30 PM" },
-      { title: "Mass in Rogal Chapel", time: "8:00 PM" }
+      { title: "Stations of the Cross in Rogal Chapel", time: "12:00 PM" },
+      { title: "Men's Group in Rogal Chapel", time: "1:00 PM - 2:00 PM" }
     ],
-    "2026-3-9": 
+     "2026-4-4": 
+    [
+      { title: "Easter Vigil at Saint Margaret Mary Church", time: "8:30 PM" }
+    ],
+    "2026-4-6": 
     [
       { title: "Labyrinth Prayer in Rogal Chapel", time: "12:00 AM - 4:00 PM" },
       { title: "Bible Study in Rogal Chapel", time: "6:00 PM" }
     ],
-    "2026-3-10": [{ title: "Catholic Newman Club Meeting in Rogal Chapel", time: "5:00 PM" }],
-    "2026-3-11": 
+    "2026-4-7": 
+    [
+      { title: "Catholic Newman Club Meeting in Rogal Chapel", time: "5:00 PM" }
+    ],
+    "2026-4-8": 
     [
       { title: "Rosary in Rogal Chapel", time: "9:30 AM" },
       { title: "Rosary in Rogal Chapel", time: "11:00 AM" },
       { title: "Men's Group in Rogal Chapel", time: "12:00 PM - 1:00 PM" },
       { title: "Men's Group in Rogal Chapel", time: "2:30 PM - 3:30 PM" }
     ],
-    "2026-3-12": 
+    "2026-4-9": 
     [
       { title: "Men's Group in Rogal Chapel", time: "1:00 PM - 2:00 PM" }
     ],
-    "2026-3-22": 
+    "2026-4-10": [{ title: "Women's Group in Rogal Chapel", time: "3:00 PM - 4:00 PM" }],
+    "2026-4-11": [{ title: "Festival of Praise at Franciscan University Steubenville", time: "5:00 PM - 10:00 PM" }],
+    "2026-4-12": 
     [
       { title: "Confession in Rogal Chapel", time: "7:30 PM" },
       { title: "Mass in Rogal Chapel", time: "8:00 PM" }
     ],
-    "2026-3-23": 
+    "2026-4-12": 
+    [
+      { title: "Confession in Rogal Chapel", time: "7:30 PM" },
+      { title: "Mass in Rogal Chapel", time: "8:00 PM" }
+    ],
+    "2026-4-13": 
     [
       { title: "Labyrinth Prayer in Rogal Chapel", time: "12:00 AM - 4:00 PM" },
-      { title: "Tenebrae Rehersal in Rogal Chapel", time: "8:00 PM" }
+      { title: "Bible Study in Rogal Chapel", time: "6:00 PM" }
     ],
-    "2026-3-24": 
+    "2026-4-14": 
     [
       { title: "Catholic Newman Club Meeting in Rogal Chapel", time: "5:00 PM" }
     ],
-    "2026-3-25": 
+    "2026-4-15": 
     [
       { title: "Rosary in Rogal Chapel", time: "9:30 AM" },
       { title: "Rosary in Rogal Chapel", time: "11:00 AM" },
       { title: "Men's Group in Rogal Chapel", time: "12:00 PM - 1:00 PM" },
       { title: "Men's Group in Rogal Chapel", time: "2:30 PM - 3:30 PM" }
     ],
-    "2026-3-26": 
+    "2026-4-16": 
     [
       { title: "Men's Group in Rogal Chapel", time: "1:00 PM - 2:00 PM" }
     ],
-    "2026-3-27": 
-    [
-      { title: "Women's Group in Rogal Chapel", time: "3:00 PM - 4:00 PM" }
-    ],
-    "2026-3-29": 
+    "2026-4-17": [{ title: "Women's Group in Rogal Chapel", time: "3:00 PM - 4:00 PM" }],
+    "2026-4-19": 
     [
       { title: "Confession in Rogal Chapel", time: "7:30 PM" },
-      { title: "Palm Sunday Mass in Rogal Chapel", time: "8:00 PM" }
+      { title: "Mass in Rogal Chapel", time: "8:00 PM" }
     ],
-    "2026-3-30": 
+    "2026-4-20": 
     [
       { title: "Labyrinth Prayer in Rogal Chapel", time: "12:00 AM - 4:00 PM" },
-      { title: "Tenebrae in Rogal Chapel", time: "8:00 PM" }
+      { title: "Bible Study in Rogal Chapel", time: "6:00 PM" }
     ],
-    "2026-3-31": 
+    "2026-4-21": 
     [
       { title: "Catholic Newman Club Meeting in Rogal Chapel", time: "5:00 PM" }
+    ],
+    "2026-4-22": 
+    [
+      { title: "Rosary in Rogal Chapel", time: "9:30 AM" },
+      { title: "Rosary in Rogal Chapel", time: "11:00 AM" },
+      { title: "Men's Group in Rogal Chapel", time: "12:00 PM - 1:00 PM" },
+      { title: "Men's Group in Rogal Chapel", time: "2:30 PM - 3:30 PM" }
+    ],
+    "2026-4-23": 
+    [
+      { title: "Men's Group in Rogal Chapel", time: "1:00 PM - 2:00 PM" }
+    ],
+    "2026-4-24": [{ title: "Women's Group in Rogal Chapel", time: "3:00 PM - 4:00 PM" }],
+    "2026-4-26": 
+    [
+      { title: "Confession in Rogal Chapel", time: "7:30 PM" },
+      { title: "Mass in Rogal Chapel", time: "8:00 PM" }
+    ],
+    "2026-4-27": 
+    [
+      { title: "Labyrinth Prayer in Rogal Chapel", time: "12:00 AM - 4:00 PM" },
+      { title: "Bible Study in Rogal Chapel", time: "6:00 PM" }
+    ],
+    "2026-4-28": 
+    [
+      { title: "Catholic Newman Club Meeting in Rogal Chapel (Bonfire)", time: "5:00 PM" }
+    ],
+    "2026-4-29": 
+    [
+      { title: "Rosary in Rogal Chapel", time: "9:30 AM" },
+      { title: "Rosary in Rogal Chapel", time: "11:00 AM" },
+      { title: "Men's Group in Rogal Chapel", time: "12:00 PM - 1:00 PM" },
+      { title: "Men's Group in Rogal Chapel", time: "2:30 PM - 3:30 PM" }
+    ],
+    "2026-4-30": 
+    [
+      { title: "Men's Group in Rogal Chapel", time: "1:00 PM - 2:00 PM" }
     ],
   };
 
